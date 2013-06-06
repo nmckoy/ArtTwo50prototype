@@ -18,14 +18,14 @@ Ti.Media.showCamera({
 	error : function(error) {
 		var message;
 		if (error.code == Ti.Media.NO_CAMERA) {
-			message = 'This device does not have camera capabilities';
+			message = 'This device does not have camera capabilities :(';
 		} else {
 			message = 'Unexpected error: ' + error.code;
 		}
 		
 		// create error
 		Ti.UI.createAlertDialog({
-			title : 'Camera',
+			title : 'No Camera',
 			message : message
 		}).show();
 	},
