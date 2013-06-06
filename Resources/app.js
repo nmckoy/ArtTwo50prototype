@@ -44,4 +44,5 @@ if (Ti.version < 1.8 ) {
 })();
 
 
-Ti.include("Camera.js");
+
+
