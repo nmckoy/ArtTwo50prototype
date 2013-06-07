@@ -42,7 +42,3 @@ if (Ti.version < 1.8 ) {
 	}
 	new Window().open();
 })();
-
-
-
-

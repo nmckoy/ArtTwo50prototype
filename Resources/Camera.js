@@ -9,7 +9,14 @@
 Ti.Media.showCamera({
 	// User is taking a photo
 	success : function(usrcam) {
-		alert('Your photo was saved to the Photo Gallery');
+		var imageView = Titanium.UI.createImageView({
+			image:usrgal.media,
+			width:win.width,
+			height:win.height,
+			zIndex:1
+		}) 
+	win.add(imageView);
+	//alert('photo saved');
 		
 	},
 	cancel : function() {
