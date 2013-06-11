@@ -110,9 +110,9 @@ function FirstView() {
 			
 			var artview = Ti.UI.createImageView({
 				image: json[i].artwork_image.url,
-				width:'50%',
-				height: '50%',
-				top: 30
+				width:'30%',
+				height: '30%',
+				top: 50
 			})
 			
 			container.add(artview);
@@ -120,8 +120,11 @@ function FirstView() {
 			artworks.push(container);
 		}
 		
+		
 		var artscroll = Ti.UI.createScrollableView({
-			views: artworks
+			views: artworks,
+			maxZoomScale: 10,
+    		minZoomScale: 0.1,
 		})
 		artscroll.setZIndex(2);
 		win.add(artscroll);
