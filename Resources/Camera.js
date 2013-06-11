@@ -1,5 +1,11 @@
 // Camera mode
 
+
+var camView = Ti.UI.createView({
+		width:'100%',
+		height:'100%',
+		fullscreen:true
+	})
  
 // there are three callbacks in showCamera function
 // Success: do something if the device has a camera
@@ -15,7 +21,7 @@ Ti.Media.showCamera({
 			height:win.height,
 			zIndex:1
 		}) 
-	win.add(imageView);
+	camView.add(imageView);
 	//alert('photo saved');
 		
 	},
@@ -41,3 +47,5 @@ Ti.Media.showCamera({
 	mediaTypes : [Ti.Media.MEDIA_TYPE_PHOTO],
 	videoQuality:Titanium.Media.QUALITY_HIGH
 });
+
+

@@ -1,4 +1,8 @@
-// New Photo Button View/Logic
+/* 
+ * As of right now this file is not being used
+ * 
+ * New Photo Button View/Logic
+ */ 
 
 function NewPhotoButton() {
 	
@@ -15,7 +19,7 @@ function NewPhotoButton() {
 		height:50,
 		bottom:10,
 		left:50,
-		zIndex:2
+		zIndex:0
 	})
  	imgView.add(button);
 	
