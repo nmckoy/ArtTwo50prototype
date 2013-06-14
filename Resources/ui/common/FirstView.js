@@ -9,6 +9,7 @@ function FirstView() {
         fullscreen: true
     });
 	
+	// open photos button
 	var btn = Ti.UI.createButton({
 	    title: "photo",
         width:125,
@@ -74,6 +75,11 @@ function FirstView() {
     dialog.show({view:btn});
     });
     
+    
+    
+    
+    
+    
         /*
      * THIS IS THE START OF THE ARTWORK BROWSING
      * 
@@ -81,6 +87,7 @@ function FirstView() {
     
     var artworks = [];
     var artworks2 = [];
+    var labels = [];
     // Titanium HTTP API
     var xhr = Ti.Network.createHTTPClient();
     
@@ -99,18 +106,72 @@ function FirstView() {
                 image: artists.artwork_image.ipad_display.url
             });
             
+            var textview = Ti.UI.createView({
+                height: '100%',
+                width: 450,
+                left: 0,
+                zIndex:5
+            })
+            var title = Ti.UI.createLabel({
+                text: artists.title,
+                textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+                font: { fontSize:26 },
+                left: 20,
+                top: 30,
+                width: 450,
+                zIndex: 4,
+                color: '#FFFFFF'
+            })
+            var name = Ti.UI.createLabel({
+                text: artists.user_profile.first_name + " " + artists.user_profile.last_name,
+                textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+                font: { fontSize:14 },
+                left: 20,
+                top: 100,
+                width: 450,
+                zIndex: 4,
+                color: '#FFFFFF'
+            })
+            var genre = Ti.UI.createLabel({
+                text: 'GENRE:' + " " + artists.genre.name,
+                textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+                font: { fontSize:16 },
+                left: 20,
+                top: 140,
+                width: 450,
+                zIndex: 4,
+                color: '#FFFFFF'
+            })
+            var description = Ti.UI.createLabel({
+                text: artists.description,
+                textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+                font: { fontSize: 16 },
+                left: 20,
+                top: 190,
+                width: 410,
+                zIndex: 4,
+                color: '#FFFFFF'
+            })
+            
+            
             // ScrollableView elements require it to be an actual view
             // put images in a view and put views in the array
             container.add(artview);
             artworks.push(container);
-            artworks2.push(artview)
+            
+            artworks2.push(artview);
+            textview.add(title);
+            textview.add(name);
+            textview.add(genre);
+            textview.add(description);
+            labels.push(textview);
             
             artview.addEventListener('click', function() {
                 var num = artscroll.currentPage;
                 detailwindow.add(artworks2[num]);
+                detailwindow.add(labels[num]);
                 detailwindow.open();
             });
-    
 	   }
 	   var artscroll = Ti.UI.createScrollableView({
             views: artworks,
@@ -131,6 +192,17 @@ function FirstView() {
             fullscreen: true
         });
         
+        //Art info view and labels container
+        var detailview = Ti.UI.createView({
+            backgroundColor: '#000000',
+            height: Ti.UI.FILL,
+            width: 450,
+            left:0,
+            opacity: 0.5,
+            zIndex: 1
+        })
+        detailwindow.add(detailview);
+        
         //close button
         var closebtn = Ti.UI.createButton({
             title: 'X',
@@ -148,8 +220,26 @@ function FirstView() {
         closebtn.addEventListener('click', function(){
             var num = artscroll.currentPage;
             detailwindow.remove(artworks2[num]);
+            detailwindow.remove(labels[num]);
             detailwindow.close();
         });
+        
+        //detail hiding
+        var visible = true;
+        detailwindow.addEventListener('click', function(){
+            //hide or show close button and infos view
+            if (visible){
+                detailview.hide();
+                closebtn.hide();
+                
+                //detailview.animate({opacity:0, duration:200});
+                //closebtn.animate({opacity:0, duration:200});
+            } else {
+                //detailview.animate({opacity:0.5, duration:700});
+                //closebtn.animate({opacity:0.5, duration:700});
+            }
+            visible = !visible;
+        })
     }
     
     // JSON error
@@ -163,6 +253,10 @@ function FirstView() {
             * END ARTWORK BROWSING
             * 
             */
+           
+           
+           
+           
 	
 	// calls camera functionality   
 	Ti.include("Camera.js");
