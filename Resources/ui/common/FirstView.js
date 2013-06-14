@@ -178,6 +178,7 @@ function FirstView() {
             maxZoomScale: 10,
             minZoomScale: 0.1,
         })
+        
         artscroll.setZIndex(3);
         win.add(artscroll);
         
@@ -224,22 +225,7 @@ function FirstView() {
             detailwindow.close();
         });
         
-        //detail hiding
-        var visible = true;
-        detailwindow.addEventListener('click', function(){
-            //hide or show close button and infos view
-            if (visible){
-                detailview.hide();
-                closebtn.hide();
-                
-                //detailview.animate({opacity:0, duration:200});
-                //closebtn.animate({opacity:0, duration:200});
-            } else {
-                //detailview.animate({opacity:0.5, duration:700});
-                //closebtn.animate({opacity:0.5, duration:700});
-            }
-            visible = !visible;
-        })
+        
     }
     
     // JSON error
