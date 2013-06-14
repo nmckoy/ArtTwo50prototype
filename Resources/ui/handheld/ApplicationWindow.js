@@ -5,8 +5,12 @@ function ApplicationWindow() {
 		
 	//create component instance
 	var self = Ti.UI.createWindow({
-		backgroundColor:'#ffffff'
-	});
+        title : "ArtTwo50",
+        backgroundColor : "#000000",
+        width: '100%',
+        height: '100%',
+        fullscreen: true
+    })
 		
 	//construct UI
 	var firstView = new FirstView();

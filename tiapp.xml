@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <property name="acs-oauth-secret-production" type="string">IEoFpd9pp8BUF9FV4DFj73hDjndymKz2</property>
-    <property name="acs-oauth-key-production" type="string">V3V7oXPmpMdnaltjYFX9M32o7VYZjFQg</property>
-    <property name="acs-api-key-production" type="string">KCX7Atg45av5s93PbxstACgpoXHbmcsz</property>
-    <property name="acs-oauth-secret-development" type="string">8ggFfUMrYXG2rt3l92BkzqKoxAjgH5C6</property>
-    <property name="acs-oauth-key-development" type="string">Pjn4iwBx7infepkfVgGyCvcsnlYBUZdS</property>
-    <property name="acs-api-key-development" type="string">nMMeo4bFO7aA74fbLeeywfAdkcCdx5WL</property>
-    <id>com.arttwo50.ArtTwo50prototype</id>
-    <name>ArtTwo50prototype</name>
+    <id>com.arttwo50.ArtTwo50</id>
+    <name>ArtTwo50proto0</name>
     <version>1.0</version>
-    <publisher>ArtTwo50</publisher>
-    <url>http://www.arttwo50.com</url>
-    <description>arttwo50</description>
-    <copyright>2013 by ArtTwo50</copyright>
+    <publisher>nicholasmckoy</publisher>
+    <url>http://http://www.arttwo50.com</url>
+    <description>not specified</description>
+    <copyright>2013 by nicholasmckoy</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
@@ -21,11 +15,11 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>83f17916-eb9e-4d45-adfe-921d04028690</guid>
+    <guid>aff2d67b-a357-4a43-9aef-bd05a3a77731</guid>
     <property name="ti.ui.defaultunit" type="string">system</property>
     <iphone>
         <orientations device="iphone">
-            <orientation>Ti.UI.PORTRIAT</orientation>
+            <orientation>Ti.UI.PORTRAIT</orientation>
         </orientations>
         <orientations device="ipad">
             <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
@@ -41,9 +35,7 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules>
-        <module platform="commonjs">ti.cloud</module>
-    </modules>
+    <modules/>
     <deployment-targets>
         <target device="blackberry">false</target>
         <target device="android">true</target>
