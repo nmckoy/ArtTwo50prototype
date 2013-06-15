@@ -16,7 +16,7 @@ function FirstView() {
         height:50,
         bottom:10,
         left:50,
-        zIndex:2
+        zIndex:5
 	});
 	win.add(btn);
 	
@@ -105,7 +105,9 @@ function FirstView() {
             var artview = Ti.UI.createImageView({
                 image: artists.artwork_image.ipad_display.url
             });
-            
+            var copy = Ti.UI.createImageView({
+                image: artists.artwork_image.ipad_display.url
+            })
             var textview = Ti.UI.createView({
                 height: '100%',
                 width: 450,
@@ -122,6 +124,17 @@ function FirstView() {
                 zIndex: 4,
                 color: '#FFFFFF'
             })
+            
+            // this is a null value check. UIlabel texts cant process null values.
+            if (artists.user_profile.first_name == null && artists.user_profile.last_name == null) {
+                artists.user_profile.first_name = "anonymous";
+                artists.user_profile.last_name = "";
+            } else if (artists.user_profile.first_name == null) {
+                artists.user_profile.first_name = "";
+            } else if (artists.user_profile.last_name == null) {
+                artists.user_profile.last_name = "";
+            };
+
             var name = Ti.UI.createLabel({
                 text: artists.user_profile.first_name + " " + artists.user_profile.last_name,
                 textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
@@ -159,7 +172,7 @@ function FirstView() {
             container.add(artview);
             artworks.push(container);
             
-            artworks2.push(artview);
+            artworks2.push(copy);
             textview.add(title);
             textview.add(name);
             textview.add(genre);
@@ -171,6 +184,7 @@ function FirstView() {
                 detailwindow.add(artworks2[num]);
                 detailwindow.add(labels[num]);
                 detailwindow.open();
+        
             });
 	   }
 	   var artscroll = Ti.UI.createScrollableView({
@@ -211,6 +225,7 @@ function FirstView() {
             right: -1,
             width: 40,
             height: 40,
+            opacity: 0.5,
             zIndex: 2
         });
         detailwindow.add(closebtn);
@@ -225,7 +240,9 @@ function FirstView() {
             detailwindow.close();
         });
         
+   
         
+
     }
     
     // JSON error
