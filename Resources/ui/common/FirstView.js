@@ -1,5 +1,8 @@
 //FirstView Component Constructor
 function FirstView() {
+    
+    //require the Draggable module please
+    var drag = require('ti.draggable');
 	
 	var win = Ti.UI.createWindow({
         title : "ArtTwo50",
@@ -96,7 +99,9 @@ function FirstView() {
         var json = JSON.parse(xhr.responseText);
         for (var i = 0; i < json.length; i++) {
             var artists = json[i];
-            var container = Ti.UI.createView({
+            // the container view to put the art image into for scrollable view
+            // the scrollable view image can be dragged with .drag
+            var container = drag.createView({
                 width: '30%',
                 height: '30%',
                 top: 50,
@@ -125,7 +130,7 @@ function FirstView() {
                 color: '#FFFFFF'
             })
             
-            // this is a null value check. UIlabel texts cant process null values.
+            // this is a null value check. UIlabel texts cant process null values. this does not work right yet lol
             if (artists.user_profile.first_name == null && artists.user_profile.last_name == null) {
                 artists.user_profile.first_name = "anonymous";
                 artists.user_profile.last_name = "";
@@ -240,9 +245,30 @@ function FirstView() {
             detailwindow.close();
         });
         
-   
-        
-
+    // Collection Bar View    
+    var collectionbar = Ti.UI.createView ({
+       backgroundColor: '#232528',
+       borderRadius: 20,
+       width: 400,
+       height: 100,
+       bottom: -10,
+       zIndex: 6
+    });
+    win.add(collectionbar);
+    
+    // collection views within bar
+    var collection1 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 30, zIndex: 1});
+    var collection2 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 120, zIndex: 1});
+    var collection3 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 210, zIndex: 1});
+    var collection4 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 300, zIndex: 1});
+    collectionbar.add(collection1);
+    collectionbar.add(collection2);
+    collectionbar.add(collection3);
+    collectionbar.add(collection4);
+    
+    
+    
+    
     }
     
     // JSON error
@@ -257,10 +283,6 @@ function FirstView() {
             * 
             */
            
-           
-           
-           
-	
 	// calls camera functionality   
 	Ti.include("Camera.js");
 	
