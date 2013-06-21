@@ -19,7 +19,7 @@ function FirstView() {
         height:50,
         bottom:10,
         left:50,
-        zIndex:5
+        zIndex:3
 	});
 	win.add(btn);
 	
@@ -88,9 +88,9 @@ function FirstView() {
      * 
      */
     
-    var artworks = [];
-    var artworks2 = [];
-    var labels = [];
+    // holds artworks, artwork copies, and labels for detailwindow
+    var artworks = [], artworks2 = [], artworks3 = [], labels = [];
+    
     // Titanium HTTP API
     var xhr = Ti.Network.createHTTPClient();
     
@@ -107,31 +107,90 @@ function FirstView() {
                 top: 50,
                 zIndex: 0
             });
-            var artview = Ti.UI.createImageView({
-                image: artists.artwork_image.ipad_display.url
-            });
-            var copy = Ti.UI.createImageView({
-                image: artists.artwork_image.ipad_display.url
-            })
-            var textview = Ti.UI.createView({
-                height: '100%',
-                width: 450,
-                left: 0,
-                zIndex:5
-            })
-            var title = Ti.UI.createLabel({
-                text: artists.title,
-                textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-                font: { fontSize:26 },
-                left: 20,
-                top: 30,
-                width: 450,
-                zIndex: 4,
-                color: '#FFFFFF'
+            
+            
+            container.addEventListener('start', function(e){
+                container.setOpacity(0.5);
             })
             
-            // this is a null value check. UIlabel texts cant process null values. this does not work right yet lol
-            if (artists.user_profile.first_name == null && artists.user_profile.last_name == null) {
+            container.addEventListener('end', function(e){
+                container.setOpactiy(1.0);
+                //check if container's coordinates are in the collections'
+                var num = artscroll.currentPage;
+                var point = {x: e.left, y: e.top};
+                var tp = win.convertPointToView(point, collection1);
+                
+                if (tp.x < 0) {
+                    tp = win.convertPointToView(point, collection1);
+                    container.setTop(50);
+                    //e.source.left = tp.x;
+                    //e.source.top = tp.y;
+                    alert(sharewin.getChildren());
+                } else {
+                    if (collection1.children) {
+                        for (var i = 0; i < collection1.children.length; i++) {
+                            if (collection1.children[i] !== undefined) {
+                                collection1.remove(collection1.children[i]);
+                            }
+                        }
+                    }
+                    collection1.add(artworks2[num]);
+                    var blob = win.toImage();
+                    var render = Ti.UI.createImageView({
+                       image: blob.imageAsCropped({x:1, y:1, width:1300, height:650}),
+                       width: '50%',
+                       height: '50%',
+                       zIndex: 0
+                    });
+                    sharewin.add(render);
+                } 
+            })
+
+            //artworks and artwok copies
+            var artview = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url}),
+                detailcopy = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url}),
+                sharecopy = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url, width: '40%', height: '40%'});
+             
+            // details for artworks in detailwindow    
+            var textview = Ti.UI.createView({
+                height: '100%',
+                width: 450, left: 0, 
+                zIndex:5}),
+                
+                title = Ti.UI.createLabel({
+                    text: artists.title,
+                    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+                    font: { fontSize:26 },
+                    left: 20, top: 30, width: 450,
+                    zIndex: 4, 
+                    color: '#FFFFFF'}),
+                    
+                name = Ti.UI.createLabel({
+                    text: artists.user_profile.first_name + " " + artists.user_profile.last_name, //message = "'null' is not an object (evaluating 'artists.user_profile.first_name')";
+                    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+                    font: { fontSize:14 }, 
+                    left: 20, top: 100, width: 450, 
+                    zIndex: 4, 
+                    color: '#FFFFFF'}),
+                    
+                genre = Ti.UI.createLabel({
+                    text: 'GENRE:' + " " + artists.genre.name,
+                    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+                    font: { fontSize:16 },
+                    left: 20, top: 140, width: 450,
+                    zIndex: 4,
+                    color: '#FFFFFF'}),
+                    
+                description = Ti.UI.createLabel({
+                    text: artists.description,
+                    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+                    font: { fontSize: 16 },
+                    left: 20, top: 190, width: 410,
+                    zIndex: 4,
+                    color: '#FFFFFF'});
+                                            
+            // this is a null value check. UIlabel texts cant process null values.
+            if (artists.user_profile.first_name == null && artists.user_profile.last_name == null) { //this one doesnt check right
                 artists.user_profile.first_name = "anonymous";
                 artists.user_profile.last_name = "";
             } else if (artists.user_profile.first_name == null) {
@@ -139,45 +198,15 @@ function FirstView() {
             } else if (artists.user_profile.last_name == null) {
                 artists.user_profile.last_name = "";
             };
-
-            var name = Ti.UI.createLabel({
-                text: artists.user_profile.first_name + " " + artists.user_profile.last_name,
-                textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-                font: { fontSize:14 },
-                left: 20,
-                top: 100,
-                width: 450,
-                zIndex: 4,
-                color: '#FFFFFF'
-            })
-            var genre = Ti.UI.createLabel({
-                text: 'GENRE:' + " " + artists.genre.name,
-                textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-                font: { fontSize:16 },
-                left: 20,
-                top: 140,
-                width: 450,
-                zIndex: 4,
-                color: '#FFFFFF'
-            })
-            var description = Ti.UI.createLabel({
-                text: artists.description,
-                textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-                font: { fontSize: 16 },
-                left: 20,
-                top: 190,
-                width: 410,
-                zIndex: 4,
-                color: '#FFFFFF'
-            })
             
             
             // ScrollableView elements require it to be an actual view
             // put images in a view and put views in the array
             container.add(artview);
             artworks.push(container);
-            
-            artworks2.push(copy);
+           
+            artworks3.push(sharecopy);
+            artworks2.push(detailcopy);
             textview.add(title);
             textview.add(name);
             textview.add(genre);
@@ -192,13 +221,14 @@ function FirstView() {
         
             });
 	   }
+ 
 	   var artscroll = Ti.UI.createScrollableView({
             views: artworks,
             maxZoomScale: 10,
             minZoomScale: 0.1,
-        })
+        });
         
-        artscroll.setZIndex(3);
+        artscroll.setZIndex(2);
         win.add(artscroll);
         
             /*
@@ -206,33 +236,33 @@ function FirstView() {
              * 
              */
         var detailwindow = Ti.UI.createWindow({
-            backgroundColor: '#000000',
-            width: '100%',
-            height: '100%',
-            fullscreen: true
-        });
+                backgroundColor: '#000000',
+                width: '100%',
+                height: '100%',
+                fullscreen: true
+            }),
         
-        //Art info view and labels container
-        var detailview = Ti.UI.createView({
-            backgroundColor: '#000000',
-            height: Ti.UI.FILL,
-            width: 450,
-            left:0,
-            opacity: 0.5,
-            zIndex: 1
-        })
+            //Art info view and labels container
+            detailview = Ti.UI.createView({
+                backgroundColor: '#000000',
+                height: Ti.UI.FILL,
+                width: 450,
+                left:0,
+                opacity: 0.5,
+                zIndex: 1
+            }),
+        
+            //close button
+            closebtn = Ti.UI.createButton({
+                title: 'X',
+                top: -1,
+                right: -1,
+                width: 40,
+                height: 40,
+                opacity: 0.5,
+                zIndex: 2
+            });
         detailwindow.add(detailview);
-        
-        //close button
-        var closebtn = Ti.UI.createButton({
-            title: 'X',
-            top: -1,
-            right: -1,
-            width: 40,
-            height: 40,
-            opacity: 0.5,
-            zIndex: 2
-        });
         detailwindow.add(closebtn);
         
             /*
@@ -244,31 +274,46 @@ function FirstView() {
             detailwindow.remove(labels[num]);
             detailwindow.close();
         });
+        shareclosebtn.addEventListener('click', function(){
+            sharewin.close();
+        })
         
-    // Collection Bar View    
-    var collectionbar = Ti.UI.createView ({
-       backgroundColor: '#232528',
-       borderRadius: 20,
-       width: 400,
-       height: 100,
-       bottom: -10,
-       zIndex: 6
-    });
-    win.add(collectionbar);
-    
-    // collection views within bar
-    var collection1 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 30, zIndex: 1});
-    var collection2 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 120, zIndex: 1});
-    var collection3 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 210, zIndex: 1});
-    var collection4 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 300, zIndex: 1});
-    collectionbar.add(collection1);
-    collectionbar.add(collection2);
-    collectionbar.add(collection3);
-    collectionbar.add(collection4);
-    
-    
-    
-    
+        //twitter stuff
+        Ti.include('/ui/common/birdhouse.js');
+        var BH = new BirdHouse({
+            consumer_key : "AbaGy7Q5iQSZhDbOvngWPA",
+            consumer_secret : "1MeG63k4ZsiojUF9Xh3MGAyKe48iJ00BlB1rUDrnduA",
+            callback_url : "http://www.arttwo50.com"
+        });
+        
+        //facebook sharing
+        var fb = require('facebook');
+        fb.appid = 160790730773041;
+        fb.permissions = ["publish_stream"];
+        
+        var data = {
+            message: 'a pic',
+            picture: render // win.toImage() blob
+        };
+        sharetobtn.addEventListener('click', function(){
+           fb.authorize();
+           Titanium.Facebook.requestWithGraphPath('me/photos', data, 'POST', function(e){
+               if (e.success){
+                   alert('Posted Artwork!');
+               } else if (e.error){
+                   alert(e.error);
+               } else {
+                   alert('Something went wrong');
+               }
+           })
+        })
+        sharetotwit.addEventListener('click', function(){
+            if (BH.authorize == true){
+                BH.sendTwitterImage({
+                    media: artworks2[1]
+                })
+            }
+        })
     }
     
     // JSON error
@@ -283,6 +328,75 @@ function FirstView() {
             * 
             */
            
+           
+    // Collection Bar View    
+    var collectionbar = Ti.UI.createView ({
+       backgroundColor: '#232528',
+       borderRadius: 20,
+       width: 400,
+       height: 100,
+       bottom: -10,
+       opacity: 0.7,
+       zIndex: 1
+    });
+    win.add(collectionbar);
+    
+    // collection views within bar
+    var collection1 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 30, zIndex: 1}),
+        collection2 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 120, zIndex: 1}),
+        collection3 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 210, zIndex: 1}),
+        collection4 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 300, zIndex: 1});
+    collectionbar.add(collection1);
+    collectionbar.add(collection2);
+    collectionbar.add(collection3);
+    collectionbar.add(collection4);  
+    
+
+    
+    var sharebtn = Ti.UI.createButton({
+            title: 'share',
+            width:125, height:50,
+            bottom:10,
+            right: 30,
+            zIndex: 3
+        }),
+        sharewin = Ti.UI.createWindow({
+            backgroundColor: "#004c5e",
+            width: '90%',
+            height: '90%',
+        }),
+        shareclosebtn = Ti.UI.createButton({
+            title: 'X',
+            top: -1,
+            right: -1,
+            width: 40, height: 40,
+            opacity: 0.5,
+            zIndex: 2
+        }),
+        sharetobtn = Ti.UI.createButton({
+            title: 'sharefb',
+            width: 200, height: 100,
+            right: 20,
+            bottom: 10,
+            zIndex: 2
+        }),
+        sharetotwit = Ti.UI.createButton({
+            title: 'sharetwit',
+            width: 200, height: 100,
+            right: 20,
+            top: 10,
+            zIndex: 2
+        })
+    sharewin.add(sharetotwit);
+    sharewin.add(shareclosebtn);
+    sharewin.add(sharetobtn);    
+    win.add(sharebtn);
+    
+    sharebtn.addEventListener('click', function(){
+        sharewin.open();
+    })
+
+     
 	// calls camera functionality   
 	Ti.include("Camera.js");
 	

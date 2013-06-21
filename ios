@@ -1,0 +1,686 @@
+  
+
+
+<!DOCTYPE html>
+<html>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>titanium_modules/facebook/mobile/ios at master · appcelerator/titanium_modules · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
+    <link rel="logo" type="image/svg" href="https://github-media-downloads.s3.amazonaws.com/github-logo.svg" />
+    <link rel="assets" href="https://a248.e.akamai.net/assets.github.com/">
+    <link rel="xhr-socket" href="/_sockets" />
+    
+
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="selected-link" value="repo_source" data-pjax-transient />
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" />
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="V7VllIcaZkTfpXlqDma8zpNPpc0/zpymPaUYO1AyQkw=" name="csrf-token" />
+
+    <link href="https://a248.e.akamai.net/assets.github.com/assets/github-6dd454fdb86cf3bd9a1044d7d0f63179100d0525.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://a248.e.akamai.net/assets.github.com/assets/github2-6c681e9970d8d0d13ae9e9d29d736bc391342304.css" media="all" rel="stylesheet" type="text/css" />
+    
+
+
+      <script src="https://a248.e.akamai.net/assets.github.com/assets/frameworks-4c434fa1705bf526e191eec0cd8fab1a5ce3e326.js" type="text/javascript"></script>
+      <script src="https://a248.e.akamai.net/assets.github.com/assets/github-4d962942351f9bca93a4cc0818497ecb764bf2aa.js" type="text/javascript"></script>
+      
+      <meta http-equiv="x-pjax-version" content="67766df09e54c18702c5229297b15d13">
+
+        <link data-pjax-transient rel='permalink' href='/appcelerator/titanium_modules/tree/d15a1851d9a86ad4a72ab23451dd9fd94b88eb08/facebook/mobile/ios'>
+    <meta property="og:title" content="titanium_modules"/>
+    <meta property="og:type" content="githubog:gitrepository"/>
+    <meta property="og:url" content="https://github.com/appcelerator/titanium_modules"/>
+    <meta property="og:image" content="https://secure.gravatar.com/avatar/01d8a2b8546d6479cf4323d72cbed363?s=420&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <meta property="og:site_name" content="GitHub"/>
+    <meta property="og:description" content="titanium_modules - Modules for Appcelerator&#39;s Titanium"/>
+    <meta property="twitter:card" content="summary"/>
+    <meta property="twitter:site" content="@GitHub">
+    <meta property="twitter:title" content="appcelerator/titanium_modules"/>
+
+    <meta name="description" content="titanium_modules - Modules for Appcelerator&#39;s Titanium" />
+
+
+    <meta content="82188" name="octolytics-dimension-user_id" /><meta content="appcelerator" name="octolytics-dimension-user_login" /><meta content="1272429" name="octolytics-dimension-repository_id" /><meta content="appcelerator/titanium_modules" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="1272429" name="octolytics-dimension-repository_network_root_id" /><meta content="appcelerator/titanium_modules" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/appcelerator/titanium_modules/commits/master.atom" rel="alternate" title="Recent Commits to titanium_modules:master" type="application/atom+xml" />
+
+  </head>
+
+
+  <body class="logged_out   vis-public env-production  ">
+    <div id="wrapper">
+
+      
+      
+      
+
+      
+      <div class="header header-logged-out">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/">Github</a>
+
+    <div class="header-actions">
+      <a class="button primary" href="/signup">Sign up</a>
+      <a class="button" href="/login?return_to=%2Fappcelerator%2Ftitanium_modules%2Ftree%2Fmaster%2Ffacebook%2Fmobile%2Fios">Sign in</a>
+    </div>
+
+    <div class="command-bar js-command-bar  in-repository">
+
+
+      <ul class="top-nav">
+          <li class="explore"><a href="/explore">Explore</a></li>
+        <li class="features"><a href="/features">Features</a></li>
+          <li class="enterprise"><a href="https://enterprise.github.com/">Enterprise</a></li>
+          <li class="blog"><a href="/blog">Blog</a></li>
+      </ul>
+        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
+
+<input type="text" data-hotkey="/ s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off"
+    
+      data-repo="appcelerator/titanium_modules"
+      data-branch="master"
+      data-sha="e0d10d7c7734c7ea5354aeb4a5cb793299cd9aa3"
+  >
+
+    <input type="hidden" name="nwo" value="appcelerator/titanium_modules" />
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" class="js-search-this-repository" name="search_target" value="repository" checked="checked" />
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input type="radio" name="search_target" value="global" />
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="octicon help tooltipped downwards" title="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input type="hidden" name="ref" value="cmdform">
+
+</form>
+    </div>
+
+  </div>
+</div>
+
+
+      
+
+
+            <div class="site hfeed" itemscope itemtype="http://schema.org/WebPage">
+      <div class="hentry">
+        
+        <div class="pagehead repohead instapaper_ignore readability-menu ">
+          <div class="container">
+            <div class="title-actions-bar">
+              
+
+<ul class="pagehead-actions">
+
+
+
+    <li>
+      <a href="/login?return_to=%2Fappcelerator%2Ftitanium_modules"
+        class="minibutton with-count js-toggler-target star-button entice tooltipped upwards"
+        title="You must be signed in to use this feature" rel="nofollow">
+        <span class="octicon octicon-star"></span>Star
+      </a>
+      <a class="social-count js-social-count" href="/appcelerator/titanium_modules/stargazers">
+        437
+      </a>
+    </li>
+    <li>
+      <a href="/login?return_to=%2Fappcelerator%2Ftitanium_modules"
+        class="minibutton with-count js-toggler-target fork-button entice tooltipped upwards"
+        title="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-git-branch"></span>Fork
+      </a>
+      <a href="/appcelerator/titanium_modules/network" class="social-count">
+        305
+      </a>
+    </li>
+</ul>
+
+              <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+                <span class="repo-label"><span>public</span></span>
+                <span class="mega-octicon octicon-repo"></span>
+                <span class="author vcard">
+                  <a href="/appcelerator" class="url fn" itemprop="url" rel="author">
+                  <span itemprop="title">appcelerator</span>
+                  </a></span> /
+                <strong><a href="/appcelerator/titanium_modules" class="js-current-repository">titanium_modules</a></strong>
+              </h1>
+            </div>
+
+            
+  <ul class="tabs">
+    <li class="pulse-nav"><a href="/appcelerator/titanium_modules/pulse" class="js-selected-navigation-item " data-selected-links="pulse /appcelerator/titanium_modules/pulse" rel="nofollow"><span class="octicon octicon-pulse"></span></a></li>
+    <li><a href="/appcelerator/titanium_modules" class="js-selected-navigation-item selected" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /appcelerator/titanium_modules">Code</a></li>
+    <li><a href="/appcelerator/titanium_modules/network" class="js-selected-navigation-item " data-selected-links="repo_network /appcelerator/titanium_modules/network">Network</a></li>
+    <li><a href="/appcelerator/titanium_modules/pulls" class="js-selected-navigation-item " data-selected-links="repo_pulls /appcelerator/titanium_modules/pulls">Pull Requests <span class='counter'>14</span></a></li>
+
+
+
+
+    <li><a href="/appcelerator/titanium_modules/graphs" class="js-selected-navigation-item " data-selected-links="repo_graphs repo_contributors /appcelerator/titanium_modules/graphs">Graphs</a></li>
+
+
+  </ul>
+  
+<div class="tabnav">
+
+  <span class="tabnav-right">
+    <ul class="tabnav-tabs">
+          <li><a href="/appcelerator/titanium_modules/tags" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_tags /appcelerator/titanium_modules/tags">Tags <span class="counter blank">0</span></a></li>
+    </ul>
+  </span>
+
+  <div class="tabnav-widget scope">
+
+
+    <div class="select-menu js-menu-container js-select-menu js-branch-menu">
+      <a class="minibutton select-menu-button js-menu-target" data-hotkey="w" data-ref="master">
+        <span class="octicon octicon-git-branch"></span>
+        <i>branch:</i>
+        <span class="js-select-button">master</span>
+      </a>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+
+        <div class="select-menu-modal">
+          <div class="select-menu-header">
+            <span class="select-menu-title">Switch branches/tags</span>
+            <span class="octicon octicon-remove-close js-menu-close"></span>
+          </div> <!-- /.select-menu-header -->
+
+          <div class="select-menu-filters">
+            <div class="select-menu-text-filter">
+              <input type="text" id="commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+            </div>
+            <div class="select-menu-tabs">
+              <ul>
+                <li class="select-menu-tab">
+                  <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+                </li>
+                <li class="select-menu-tab">
+                  <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+                </li>
+              </ul>
+            </div><!-- /.select-menu-tabs -->
+          </div><!-- /.select-menu-filters -->
+
+          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="branches">
+
+            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
+
+                <div class="select-menu-item js-navigation-item ">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/appcelerator/titanium_modules/tree/apilevel_1/facebook/mobile/ios" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="apilevel_1" rel="nofollow" title="apilevel_1">apilevel_1</a>
+                </div> <!-- /.select-menu-item -->
+                <div class="select-menu-item js-navigation-item selected">
+                  <span class="select-menu-item-icon octicon octicon-check"></span>
+                  <a href="/appcelerator/titanium_modules/tree/master/facebook/mobile/ios" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="master" rel="nofollow" title="master">master</a>
+                </div> <!-- /.select-menu-item -->
+            </div>
+
+              <div class="select-menu-no-results">Nothing to show</div>
+          </div> <!-- /.select-menu-list -->
+
+
+          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="tags">
+            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
+
+            </div>
+
+            <div class="select-menu-no-results">Nothing to show</div>
+
+          </div> <!-- /.select-menu-list -->
+
+        </div> <!-- /.select-menu-modal -->
+      </div> <!-- /.select-menu-modal-holder -->
+    </div> <!-- /.select-menu -->
+
+  </div> <!-- /.scope -->
+
+  <ul class="tabnav-tabs">
+    <li><a href="/appcelerator/titanium_modules" class="selected js-selected-navigation-item tabnav-tab" data-selected-links="repo_source /appcelerator/titanium_modules">Files</a></li>
+    <li><a href="/appcelerator/titanium_modules/commits/master" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_commits /appcelerator/titanium_modules/commits/master">Commits</a></li>
+    <li><a href="/appcelerator/titanium_modules/branches" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_branches /appcelerator/titanium_modules/branches" rel="nofollow">Branches <span class="counter ">2</span></a></li>
+  </ul>
+
+</div>
+
+  
+  
+  
+
+
+            
+          </div>
+        </div><!-- /.repohead -->
+
+        <div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container>
+          
+
+
+<!-- tree commit key: views10/v8/tree:v21:7ac08bb1ffd062d91686648891807a20 -->
+
+  <div id="slider">
+      <div class="frame-meta">
+
+          <p class="history-link js-history-link-replace">
+              <a href="/appcelerator/titanium_modules/commits/master/facebook/mobile/ios" rel="nofollow">
+                <span class="octicon octicon-history tooltipped" title="Browse commits for this directory"></span>
+                History
+</a>          </p>
+
+        <div class="breadcrumb">
+          <span class='bold'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/appcelerator/titanium_modules" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">titanium_modules</span></a></span></span><span class="separator"> / </span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/appcelerator/titanium_modules/tree/master/facebook" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">facebook</span></a></span><span class="separator"> / </span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">mobile</span></a></span><span class="separator"> / </span><strong class="final-path">ios</strong><span class="separator"> / </span><form action="/login?return_to=%2Fappcelerator%2Ftitanium_modules%2Ftree%2Fmaster%2Ffacebook%2Fmobile%2Fios" class="js-new-blob-form tooltipped rightwards new-file-link" method="post" title="Sign in to make or propose changes"><span class="js-new-blob-submit octicon octicon-file-add"></span></form>
+        </div>
+
+        <a href="/appcelerator/titanium_modules/find/master"
+           class="js-slide-to" data-hotkey="t" style="display:none">Show File Finder</a>
+
+      </div><!-- ./.frame-meta -->
+
+      
+
+  <div class="frames">
+    <div class="frame" data-permalink-url="/appcelerator/titanium_modules/tree/d15a1851d9a86ad4a72ab23451dd9fd94b88eb08/facebook/mobile/ios" data-title="titanium_modules/facebook/mobile/ios at master · appcelerator/titanium_modules · GitHub" data-type="tree">
+
+      <div class="bubble tree-browser-wrapper">
+
+      <table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
+        <thead>
+            
+  <div class="commit commit-tease js-details-container" >
+    <p class="commit-title ">
+        <a href="/appcelerator/titanium_modules/commit/91a6c9175591e5054d9bbc5ac6454ac73a8d99af" class="message">TIMOB-12828 Increment version, document changes.</a>
+        
+    </p>
+    <div class="commit-meta">
+      <span class="js-zeroclipboard zeroclipboard-link" data-clipboard-text="91a6c9175591e5054d9bbc5ac6454ac73a8d99af" data-copied-hint="copied!" title="Copy SHA"><span class="octicon octicon-clippy"></span></span>
+      <a href="/appcelerator/titanium_modules/commit/91a6c9175591e5054d9bbc5ac6454ac73a8d99af" class="sha-block" data-pjax>latest commit <span class="sha">91a6c91755</span></a>
+
+      <div class="authorship">
+        <img class="gravatar" height="20" src="https://secure.gravatar.com/avatar/5cb97ee409d7c2959274886c4b9fc97c?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="20" />
+        <span class="author-name"><a href="/BlainHamon" data-skip-pjax="true" rel="contributor">BlainHamon</a></span>
+        authored <time class="js-relative-date updated" datetime="2013-03-19T16:20:28-07:00" title="2013-03-19 16:20:28">March 19, 2013</time>
+
+      </div>
+    </div>
+  </div>
+
+        </thead>
+
+        
+
+<tbody class="tree-entries js-deferred-content"
+    data-url="/appcelerator/titanium_modules/tree-commits/master/facebook/mobile/ios">
+
+    <tr>
+      <td></td>
+      <td><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile" class="js-slide-to" data-direction="back" rel="nofollow">..</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile/ios/Classes" class="js-directory-link js-slide-to css-truncate-target" id="e9878b4854d29907146149f695cb1cfb-38066cc1397ed6b9b461fdeb00ea7f15736cd283" title="Classes">Classes</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-03-19T16:20:28-07:00" title="2013-03-19 16:20:28">March 19, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/91a6c9175591e5054d9bbc5ac6454ac73a8d99af" class="message">TIMOB-12828 Increment version, document changes.</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile/ios/Facebook.xcodeproj" class="js-directory-link js-slide-to css-truncate-target" id="73250a1484b2f6737c52e65fe14b8f44-9633e43305463088f64d96fcab3992373718290b" title="Facebook.xcodeproj">Facebook.xcodeproj</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-02-04T15:19:15-08:00" title="2013-02-04 15:19:15">February 04, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/b94115fa815d93e39d70ea709e9914a9a27b50e2" class="message">TIMOB-10422 Fixing accidental lowercasing in search/replace.</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile/ios/assets" class="js-directory-link js-slide-to css-truncate-target" id="32bb636196f91ed59d7a49190e26b42c-a4fe55cce1f40b272f913445b98b2e3cdeec32da" title="assets">assets</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-02-04T12:14:08-08:00" title="2013-02-04 12:14:08">February 04, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/4342bab48311bf659fc0fc9aeeb71bca89f415d3" class="message">TIMOB-10422 A 'simple' module rename, back to 'facebook'</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile/ios/documentation" class="js-directory-link js-slide-to css-truncate-target" id="55876228853abf632dec9346a4f372ec-0f986b39ed74b6f10af23cf37f3993210db7771c" title="documentation">documentation</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-03-19T16:20:28-07:00" title="2013-03-19 16:20:28">March 19, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/91a6c9175591e5054d9bbc5ac6454ac73a8d99af" class="message">TIMOB-12828 Increment version, document changes.</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile/ios/example" class="js-directory-link js-slide-to css-truncate-target" id="1a79a4d60de6718e8e5b326e338ae533-323a94619160a89a8f41b6bd53110db94beb9047" title="example">example</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-02-06T14:58:37-08:00" title="2013-02-06 14:58:37">February 06, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/4cd5deabcd52150576c9546fa5fb1fafa674c9b4" class="message">TIMOB-10422 Cleanup, getting ready to be presentable.</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile/ios/hooks" class="js-directory-link js-slide-to css-truncate-target" id="4e819c837d54a6ed09abc77a8560a66f-a1099bb25f69db61eb1e4e78c7b7c88e0c7ed496" title="hooks">hooks</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-11-01T10:32:54-07:00" title="2012-11-01 10:32:54">November 01, 2012</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/629dedd2b0bd8d82082753af3bce65b119da7eb2" class="message">TIMOB-10422 First pass at facebook module</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-directory"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/tree/master/facebook/mobile/ios/platform" class="js-directory-link js-slide-to css-truncate-target" id="34a6e5d64ade17ef4e51612c50dd72f5-72b5cd1ac034efd4216fac3f09259ef967186de1" title="platform">platform</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-11-01T10:32:54-07:00" title="2012-11-01 10:32:54">November 01, 2012</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/629dedd2b0bd8d82082753af3bce65b119da7eb2" class="message">TIMOB-10422 First pass at facebook module</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/.gitignore" class="js-directory-link js-slide-to css-truncate-target" id="a084b794bc0759e7a6b77810e01874f2-42b492a41313eb8368228dae3a2a0b481bb1de4b" title=".gitignore">.gitignore</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-11-01T10:32:54-07:00" title="2012-11-01 10:32:54">November 01, 2012</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/629dedd2b0bd8d82082753af3bce65b119da7eb2" class="message">TIMOB-10422 First pass at facebook module</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/CHANGELOG.txt" class="js-directory-link js-slide-to css-truncate-target" id="a0493e27f48b50e18312b9f4508fc29d-de1e09178053d84e9d5c5c94c83783c621437499" title="CHANGELOG.txt">CHANGELOG.txt</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-11-01T10:32:54-07:00" title="2012-11-01 10:32:54">November 01, 2012</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/629dedd2b0bd8d82082753af3bce65b119da7eb2" class="message">TIMOB-10422 First pass at facebook module</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/Facebook_Prefix.pch" class="js-directory-link js-slide-to css-truncate-target" id="ebb7dda2cf3872d2a7b77a50e271e248-8bec24fa205708b0d21172aa0623493973867b14" title="Facebook_Prefix.pch">Facebook_Prefix.pch</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-02-04T12:14:08-08:00" title="2013-02-04 12:14:08">February 04, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/4342bab48311bf659fc0fc9aeeb71bca89f415d3" class="message">TIMOB-10422 A 'simple' module rename, back to 'facebook'</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/LICENSE" class="js-directory-link js-slide-to css-truncate-target" id="9879d6db96fd29134fc802214163b95a-f52ddb7f9c173307808ea803202d8352b82faecd" title="LICENSE">LICENSE</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-02-07T10:37:06-08:00" title="2013-02-07 10:37:06">February 07, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/68eb67bfff274363b62431a1f9bba7d28d1e9f5a" class="message">[MOD-1270] Facebook: adding attribution and updating copyright in source</a>
+          [<a href="/jonalter" rel="author">jonalter</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/build.py" class="js-directory-link js-slide-to css-truncate-target" id="2955d5257f635de1df53f55a171ca5c7-f6b35608e4ff6a27f3a591bcae61b1b5fa8ef43f" title="build.py">build.py</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-01-29T19:45:32-08:00" title="2013-01-29 19:45:32">January 29, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/ddcef5e538309d10abad54c6aaa6d31fb1f7517b" class="message">TIMOB-12488 Include examples of javascript in build</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/facebook-iphone-3.1.0.zip" class="js-directory-link js-slide-to css-truncate-target" id="32f3196dabafe37d24c85d9ad448d493-c72c87ef0314b0b8072ed4768b4425d8b6c2af3a" title="facebook-iphone-3.1.0.zip">facebook-iphone-3.1.0.zip</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-03-19T16:07:07-07:00" title="2013-03-19 16:07:07">March 19, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/4136a9f18b861c7d9bfe7e80bc5140ee9235e0e8" class="message">Revert "TIMOB-12828 Add cancelled error message, built new zip."</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/facebook-iphone-3.1.1.zip" class="js-directory-link js-slide-to css-truncate-target" id="9263404b9d0f2c3e7be97aa964d3d942-0e6816b04c547ade30c5ea43deb39d05cefff40b" title="facebook-iphone-3.1.1.zip">facebook-iphone-3.1.1.zip</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-03-19T16:20:28-07:00" title="2013-03-19 16:20:28">March 19, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/91a6c9175591e5054d9bbc5ac6454ac73a8d99af" class="message">TIMOB-12828 Increment version, document changes.</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/manifest" class="js-directory-link js-slide-to css-truncate-target" id="7f5cb74af5d7f4b82200738fdbdc5a45-f4074bb575cc6fc7fadb375bd608ff2bf7de5799" title="manifest">manifest</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2013-03-19T16:20:28-07:00" title="2013-03-19 16:20:28">March 19, 2013</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/91a6c9175591e5054d9bbc5ac6454ac73a8d99af" class="message">TIMOB-12828 Increment version, document changes.</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/module.xcconfig" class="js-directory-link js-slide-to css-truncate-target" id="632504b74d9e288d1b9e12a70d5a7898-ed36bdf2fee33dc4d0b1727b6a6d317998b52013" title="module.xcconfig">module.xcconfig</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-11-01T10:32:54-07:00" title="2012-11-01 10:32:54">November 01, 2012</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/629dedd2b0bd8d82082753af3bce65b119da7eb2" class="message">TIMOB-10422 First pass at facebook module</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/timodule.xml" class="js-directory-link js-slide-to css-truncate-target" id="88edd2e0ddcbd7e7fc982944628f333d-6affb2faec1e7de6cafc36c3fe0e60e6693fb6cc" title="timodule.xml">timodule.xml</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-11-01T10:32:54-07:00" title="2012-11-01 10:32:54">November 01, 2012</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/629dedd2b0bd8d82082753af3bce65b119da7eb2" class="message">TIMOB-10422 First pass at facebook module</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+    <tr>
+      <td class="icon"><span class="octicon octicon-file-text"></span></td>
+      <td class="content"><a href="/appcelerator/titanium_modules/blob/master/facebook/mobile/ios/titanium.xcconfig" class="js-directory-link js-slide-to css-truncate-target" id="7161e9ac1088f409d5a99ea175f11852-0c5d8a3446ff9083643e8d73cbae0a54ebaf5c01" title="titanium.xcconfig">titanium.xcconfig</a></td>
+      <td class="age"><time class="js-relative-date" datetime="2012-11-01T10:32:54-07:00" title="2012-11-01 10:32:54">November 01, 2012</time></td>
+
+      <td class="message">
+          <a href="/appcelerator/titanium_modules/commit/629dedd2b0bd8d82082753af3bce65b119da7eb2" class="message">TIMOB-10422 First pass at facebook module</a>
+          [<a href="/BlainHamon" rel="author">BlainHamon</a>]
+
+      </td>
+    </tr>
+</tbody>
+
+      </table>
+      </div>
+
+        
+    </div>
+  </div>
+  <br style="clear:both;">
+
+
+<br style="clear:both;">
+
+<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
+  <img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif" height="64" width="64">
+</div>
+
+
+  </div>
+
+        </div>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+
+      <div id="footer-push"></div><!-- hack for sticky footer -->
+    </div><!-- end of wrapper - hack for sticky footer -->
+
+      <!-- footer -->
+      <div id="footer">
+  <div class="container clearfix">
+
+      <dl class="footer_nav">
+        <dt>GitHub</dt>
+        <dd><a href="/about">About us</a></dd>
+        <dd><a href="/blog">Blog</a></dd>
+        <dd><a href="/contact">Contact &amp; support</a></dd>
+        <dd><a href="https://enterprise.github.com/">GitHub Enterprise</a></dd>
+        <dd><a href="https://status.github.com/">Site status</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Applications</dt>
+        <dd><a href="http://mac.github.com/">GitHub for Mac</a></dd>
+        <dd><a href="http://windows.github.com/">GitHub for Windows</a></dd>
+        <dd><a href="http://eclipse.github.com/">GitHub for Eclipse</a></dd>
+        <dd><a href="http://mobile.github.com/">GitHub mobile apps</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Services</dt>
+        <dd><a href="http://get.gaug.es/">Gauges: Web analytics</a></dd>
+        <dd><a href="https://speakerdeck.com">Speaker Deck: Presentations</a></dd>
+        <dd><a href="https://gist.github.com">Gist: Code snippets</a></dd>
+        <dd><a href="https://jobs.github.com/">Job board</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>Documentation</dt>
+        <dd><a href="https://help.github.com/">GitHub Help</a></dd>
+        <dd><a href="http://developer.github.com/">Developer API</a></dd>
+        <dd><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></dd>
+        <dd><a href="http://pages.github.com/">GitHub Pages</a></dd>
+      </dl>
+
+      <dl class="footer_nav">
+        <dt>More</dt>
+        <dd><a href="http://training.github.com/">Training</a></dd>
+        <dd><a href="/edu">Students &amp; teachers</a></dd>
+        <dd><a href="http://shop.github.com">The Shop</a></dd>
+        <dd><a href="/plans">Plans &amp; pricing</a></dd>
+        <dd><a href="http://octodex.github.com/">The Octodex</a></dd>
+      </dl>
+
+      <hr class="footer-divider">
+
+
+    <p class="right">&copy; 2013 <span title="0.05403s from fe13.rs.github.com">GitHub</span>, Inc. All rights reserved.</p>
+    <a class="left" href="/">
+      <span class="mega-octicon octicon-mark-github"></span>
+    </a>
+    <ul id="legal">
+        <li><a href="/site/terms">Terms of Service</a></li>
+        <li><a href="/site/privacy">Privacy</a></li>
+        <li><a href="/security">Security</a></li>
+    </ul>
+
+  </div><!-- /.container -->
+
+</div><!-- /.#footer -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-fullscreen-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+          <div class="suggester-container">
+              <div class="suggester fullscreen-suggester js-navigation-container" id="fullscreen_suggester"
+                 data-url="/appcelerator/titanium_modules/suggestions/commit">
+              </div>
+          </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" title="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped leftwards"
+      title="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-remove-close close ajax-error-dismiss"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+    
+    <span id='server_response_time' data-time='0.05442' data-host='fe13'></span>
+    
+  </body>
+</html>
+
