@@ -143,6 +143,7 @@ function FirstView() {
                        zIndex: 0
                     });
                     sharewin.add(render);
+                    buywindow.add(render);
                 } 
             })
 
@@ -293,9 +294,9 @@ function FirstView() {
         
         var data = {
             message: 'a pic',
-            picture: render // win.toImage() blob
+            picture: artworks2[0] // win.toImage() blob or 'render' in line 139
         };
-        sharetobtn.addEventListener('click', function(){
+        sharetofb.addEventListener('click', function(){
            fb.authorize();
            Titanium.Facebook.requestWithGraphPath('me/photos', data, 'POST', function(e){
                if (e.success){
@@ -314,6 +315,21 @@ function FirstView() {
                 })
             }
         })
+        purchasebtn.addEventListener('click', function(){
+            buywindow.open();
+        });
+        cardIOopen.addEventListener('click', function(){     
+            var ti_cardio = require('ti.cardio');
+            Ti.API.info("module is => " + ti_cardio);
+            
+            ti_cardio.scanCard("627a52c5a88246299e375899fb10a541", function(data){
+                Ti.API.info(' info ' + JSON.stringify(data));
+            });
+        })
+        closepurchase.addEventListener('click', function(){
+            buywindow.close();
+        });
+        
     }
     
     // JSON error
@@ -355,9 +371,9 @@ function FirstView() {
     
     var sharebtn = Ti.UI.createButton({
             title: 'share',
-            width:125, height:50,
+            width: 90, height:50,
             bottom:10,
-            right: 30,
+            right: 160,
             zIndex: 3
         }),
         sharewin = Ti.UI.createWindow({
@@ -373,7 +389,7 @@ function FirstView() {
             opacity: 0.5,
             zIndex: 2
         }),
-        sharetobtn = Ti.UI.createButton({
+        sharetofb = Ti.UI.createButton({
             title: 'sharefb',
             width: 200, height: 100,
             right: 20,
@@ -389,14 +405,43 @@ function FirstView() {
         })
     sharewin.add(sharetotwit);
     sharewin.add(shareclosebtn);
-    sharewin.add(sharetobtn);    
+    sharewin.add(sharetofb);    
     win.add(sharebtn);
     
     sharebtn.addEventListener('click', function(){
         sharewin.open();
     })
 
-     
+    var buywindow = Ti.UI.createWindow({
+            backgroundColor: "#004c5e",
+            width: '90%',
+            height: '90%',        
+        }),
+        purchasebtn = Ti.UI.createButton({
+            title: 'purchase',
+            width: 90, height:50,
+            bottom: 10,
+            right: 30,
+            zIndex: 3
+        }),
+        closepurchase = Ti.UI.createButton({
+            title: 'X',
+            top: -1,
+            right: -1,
+            width: 40, height: 40,
+            opacity: 0.5,
+            zIndex: 2
+        }),
+        cardIOopen = Ti.UI.createButton({
+            title: 'buy',
+            width: 200, height: 100,
+            right: 20,
+            bottom: 10,
+            zIndex: 2
+        })
+    buywindow.add(cardIOopen);
+    buywindow.add(closepurchase);
+    win.add(purchasebtn);
 	// calls camera functionality   
 	Ti.include("Camera.js");
 	
