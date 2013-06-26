@@ -111,6 +111,11 @@ function FirstView() {
             
             container.addEventListener('start', function(e){
                 container.setOpacity(0.5);
+                var point = {x: e.source.left, y: e.source.top};
+                var tp = e.source.parent.convertPointToView(point, win);
+                e.source.left = tp.x;
+                e.source.top = tp.y;
+                win.add(e.source); 
             })
             
             container.addEventListener('end', function(e){
@@ -118,15 +123,15 @@ function FirstView() {
                 //check if container's coordinates are in the collections'
                 var num = artscroll.currentPage;
                 var point = {x: e.left, y: e.top};
-                var tp = win.convertPointToView(point, collection1);
+                var tp = win.convertPointToView(point, win);
                 
                 if (tp.x < 0) {
                     tp = win.convertPointToView(point, collection1);
                     container.setTop(50);
-                    //e.source.left = tp.x;
-                    //e.source.top = tp.y;
-                    alert(sharewin.getChildren());
+                    e.source.left = tp.x;
+                    e.source.top = tp.y;
                 } else {
+                    e.source.left = tp.x
                     if (collection1.children) {
                         for (var i = 0; i < collection1.children.length; i++) {
                             if (collection1.children[i] !== undefined) {
@@ -334,7 +339,7 @@ function FirstView() {
     
     // JSON error
     xhr.onerror = function(){
-        alert ("Error reading data");
+        alert ("Error reading artwork data");
     }
     
     xhr.open("GET", "http://www.arttwo50.com/artworks/query.json");
