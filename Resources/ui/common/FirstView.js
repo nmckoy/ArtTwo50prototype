@@ -110,28 +110,16 @@ function FirstView() {
             
             
             container.addEventListener('start', function(e){
-                container.setOpacity(0.5);
-                var point = {x: e.source.left, y: e.source.top};
-                var tp = e.source.parent.convertPointToView(point, win);
-                e.source.left = tp.x;
-                e.source.top = tp.y;
-                win.add(e.source); 
+                //container.setOpacity(0.5);
             })
             
             container.addEventListener('end', function(e){
-                container.setOpactiy(1.0);
                 //check if container's coordinates are in the collections'
                 var num = artscroll.currentPage;
                 var point = {x: e.left, y: e.top};
-                var tp = win.convertPointToView(point, win);
+                var tp = e.convertPointToView(point, collection1);
                 
-                if (tp.x < 0) {
-                    tp = win.convertPointToView(point, collection1);
-                    container.setTop(50);
-                    e.source.left = tp.x;
-                    e.source.top = tp.y;
-                } else {
-                    e.source.left = tp.x
+                if (1==1) {
                     if (collection1.children) {
                         for (var i = 0; i < collection1.children.length; i++) {
                             if (collection1.children[i] !== undefined) {
@@ -149,9 +137,11 @@ function FirstView() {
                     });
                     sharewin.add(render);
                     buywindow.add(render);
-                } 
-            })
-
+                } else {
+                    alert("Drag art into the collection");
+                }
+            });
+            
             //artworks and artwok copies
             var artview = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url}),
                 detailcopy = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url}),
