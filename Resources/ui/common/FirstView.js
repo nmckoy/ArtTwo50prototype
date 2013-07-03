@@ -92,11 +92,17 @@ function FirstView() {
     var artworks = [], artworks2 = [], artworks3 = [], labels = [];
     
     // Titanium HTTP API
-    var xhr = Ti.Network.createHTTPClient();
+    //var xhr = Ti.Network.createHTTPClient();
     
     // success on JSON
-    xhr.onload = function(){
-        var json = JSON.parse(xhr.responseText);
+    //xhr.onload = function(){
+        
+    // LOCAL JSON FILE
+   var fileName = 'one_art.json';
+   var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, fileName);
+   // var preParseData = (file.read().text);
+   var json = JSON.parse(file.read());
+   // parse xhr request    var json = JSON.parse(xhr.responseText);
         for (var i = 0; i < json.length; i++) {
             var artists = json[i];
             // the container view to put the art image into for scrollable view
@@ -143,7 +149,7 @@ function FirstView() {
             });
             
             //artworks and artwok copies
-            var artview = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url}),
+            var artview = Ti.UI.createImageView({image: artists.artwork_image.artwork_image.ipad_display.url}),
                 detailcopy = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url}),
                 sharecopy = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url, width: '40%', height: '40%'});
              
@@ -325,15 +331,15 @@ function FirstView() {
             buywindow.close();
         });
         
-    }
+   // }
     
-    // JSON error
-    xhr.onerror = function(){
-        alert ("Error reading artwork data");
-    }
+   // JSON error
+   // xhr.onerror = function(){
+   //     alert ("Error reading artwork data");
+   // }
     
-    xhr.open("GET", "http://www.arttwo50.com/artworks/query.json");
-    xhr.send(); // asynchronous call
+   // xhr.open("GET", "https://gist.github.com/sfkaos/d037c8ba390bb30deb3e/raw/dcb77966659c13aed0c278ec54375becf7c8b4ea/gistfile1.txt");
+   // xhr.send(); // asynchronous call
            /*
             * END ARTWORK BROWSING
             * 

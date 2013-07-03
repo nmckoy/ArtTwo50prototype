@@ -1,0 +1,41 @@
+{ "artwork_image" : {
+        "artwork_image" : {
+            "ipad_display" : {
+                "url" : "http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/551/ipad_display_IMG_8021.jpg"
+            },
+            "preview" : {
+                "url" : "http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/551/preview_IMG_8021.jpg"
+            },
+            "thumb" : {
+                "url" : "http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/551/thumb_IMG_8021.jpg"
+            },
+            "url" : "http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/551/IMG_8021.jpg"      
+        }
+   },
+   "average_color" : {
+        "type_id" : null,
+        "value" : ""
+   },
+   "average_hue" : "<null>",
+   "columns" : 1926,
+   "depth" : 1,
+   "description" : "Anyone who has ever tried to park a car in New York City hates when they see these. It looks like a spot then you pull up and see the fire hydrant. Painted on the corner of Ave I and Coney Island Ave in Brooklyn. A classic symbol of New York life.",
+   "genre" : {
+        "id" : 116,
+        "name" : "Modern"
+   },
+   "height" : 20,
+   "id" : 551,
+   "keyword" : "",
+   "medium" : {
+        "id" : 143,
+        "name" : "acrylic on canvas"
+   },
+   "price" : 250,
+   "rows" : 1536,
+   "shipping_requirements" : "<null>",
+   "title" : "Brooklyn Fire Hydrant",
+   "user_id" : 319,
+   "weight" : "<null>",
+   "width" : 16
+}
