@@ -88,21 +88,29 @@ function FirstView() {
      * 
      */
     
+     /*
+     * DRAG OVER COLLECTION BAR LOGIC
+     */
+     //Boolean functions to check the 'overlappers' x and y values against
+     //the min and max x and y values of the 'overlappee'
+     function valueInRange(value, min, max) {
+          return (value >= min) && (value <= max);
+     }
+     function viewOverlap(A, B) {
+          var xOverlap = valueInRange(A.x, B.x, B.x /*+ B.width*/) || valueInRange(B.x, A.x, A.x /*+ A.width*/);
+          var yOverlap = valueInRange(A.y, B.y, B.y /*+ B.height*/) || valueInRange(B.y, A.y, A.y /*+ B.height*/);
+          return xOverlap && yOverlap;
+     }
+    
     // holds artworks, artwork copies, and labels for detailwindow
     var artworks = [], artworks2 = [], artworks3 = [], labels = [];
     
     // Titanium HTTP API
-    //var xhr = Ti.Network.createHTTPClient();
+    var xhr = Ti.Network.createHTTPClient();
     
     // success on JSON
-    //xhr.onload = function(){
-        
-    // LOCAL JSON FILE
-   var fileName = 'one_art.json';
-   var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, fileName);
-   // var preParseData = (file.read().text);
-   var json = JSON.parse(file.read());
-   // parse xhr request    var json = JSON.parse(xhr.responseText);
+    xhr.onload = function(){
+        var json = JSON.parse(xhr.responseText);
         for (var i = 0; i < json.length; i++) {
             var artists = json[i];
             // the container view to put the art image into for scrollable view
@@ -114,16 +122,21 @@ function FirstView() {
                 zIndex: 0
             });
             
-            
+            //just to tell us visibly that overlap has happened
+            function updateUI() {
+                if (viewOverlap(collection1.rect, container.rect)) {
+                    collection1.opacity = 0.5;
+                } else {
+                    collection1.opacity = 1;
+                }
+            }
             container.addEventListener('start', function(e){
                 //container.setOpacity(0.5);
             })
-            
-            container.addEventListener('end', function(e){
+            container.addEventListener('end', updateUI);
+            /*ontainer.addEventListener('end', function(e){
                 //check if container's coordinates are in the collections'
                 var num = artscroll.currentPage;
-                var point = {x: e.left, y: e.top};
-                var tp = e.convertPointToView(point, collection1);
                 
                 if (1==1) {
                     if (collection1.children) {
@@ -146,12 +159,12 @@ function FirstView() {
                 } else {
                     alert("Drag art into the collection");
                 }
-            });
+            });*/
             
             //artworks and artwok copies
             var artview = Ti.UI.createImageView({image: artists.artwork_image.artwork_image.ipad_display.url}),
-                detailcopy = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url}),
-                sharecopy = Ti.UI.createImageView({image: artists.artwork_image.ipad_display.url, width: '40%', height: '40%'});
+                detailcopy = Ti.UI.createImageView({image: artists.artwork_image.artwork_image.ipad_display.url}),
+                sharecopy = Ti.UI.createImageView({image: artists.artwork_image.artwork_image.ipad_display.url, width: '40%', height: '40%'});
              
             // details for artworks in detailwindow    
             var textview = Ti.UI.createView({
@@ -168,7 +181,7 @@ function FirstView() {
                     color: '#FFFFFF'}),
                     
                 name = Ti.UI.createLabel({
-                    text: artists.user_profile.first_name + " " + artists.user_profile.last_name, //message = "'null' is not an object (evaluating 'artists.user_profile.first_name')";
+                    text: artists.artist.user_profile.first_name + " " + artists.artist.user_profile.last_name, //message = "'null' is not an object (evaluating 'artists.artist.user_profile.first_name')";
                     textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
                     font: { fontSize:14 }, 
                     left: 20, top: 100, width: 450, 
@@ -192,13 +205,13 @@ function FirstView() {
                     color: '#FFFFFF'});
                                             
             // this is a null value check. UIlabel texts cant process null values.
-            if (artists.user_profile.first_name == null && artists.user_profile.last_name == null) { //this one doesnt check right
-                artists.user_profile.first_name = "anonymous";
-                artists.user_profile.last_name = "";
-            } else if (artists.user_profile.first_name == null) {
-                artists.user_profile.first_name = "";
-            } else if (artists.user_profile.last_name == null) {
-                artists.user_profile.last_name = "";
+            if (artists.artist.user_profile.first_name == null && artists.artist.user_profile.last_name == null) { //this one doesnt check right
+                artists.artist.user_profile.first_name = "anonymous";
+                artists.artist.user_profile.last_name = "";
+            } else if (artists.artist.user_profile.first_name == null) {
+                artists.artist.user_profile.first_name = "";
+            } else if (artists.artist.user_profile.last_name == null) {
+                artists.artist.user_profile.last_name = "";
             };
             
             
@@ -223,7 +236,7 @@ function FirstView() {
         
             });
 	   }
- 
+  
 	   var artscroll = Ti.UI.createScrollableView({
             views: artworks,
             maxZoomScale: 10,
@@ -331,15 +344,15 @@ function FirstView() {
             buywindow.close();
         });
         
-   // }
+    }
     
-   // JSON error
-   // xhr.onerror = function(){
-   //     alert ("Error reading artwork data");
-   // }
+    //JSON error
+    xhr.onerror = function(){
+        alert ("Error reading artwork data");
+    }
     
-   // xhr.open("GET", "https://gist.github.com/sfkaos/d037c8ba390bb30deb3e/raw/dcb77966659c13aed0c278ec54375becf7c8b4ea/gistfile1.txt");
-   // xhr.send(); // asynchronous call
+    xhr.open("GET", "http://www.arttwo50.com/artworks/query.json?distance=close&limit=2&size=small");
+    xhr.send(); // asynchronous call
            /*
             * END ARTWORK BROWSING
             * 
@@ -359,7 +372,7 @@ function FirstView() {
     win.add(collectionbar);
     
     // collection views within bar
-    var collection1 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 30, zIndex: 1}),
+    var collection1 = Ti.UI.createView ({backgroundColor: /*'#101316'*/'green', width: 70, height: 70, left: 30, zIndex: 1}),
         collection2 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 120, zIndex: 1}),
         collection3 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 210, zIndex: 1}),
         collection4 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 300, zIndex: 1});

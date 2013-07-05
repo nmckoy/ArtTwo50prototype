@@ -1,41 +1,75 @@
-{ "artwork_image" : {
-        "artwork_image" : {
-            "ipad_display" : {
-                "url" : "http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/551/ipad_display_IMG_8021.jpg"
+[
+   {
+      "artwork_image":{
+         "artwork_image":{
+            "url":"http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/976/earth_III.jpg",
+            "ipad_display":{
+               "url":"http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/976/ipad_display_earth_III.jpg"
             },
-            "preview" : {
-                "url" : "http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/551/preview_IMG_8021.jpg"
+            "preview":{
+               "url":"http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/976/preview_earth_III.jpg"
             },
-            "thumb" : {
-                "url" : "http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/551/thumb_IMG_8021.jpg"
+            "thumb":{
+               "url":"http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/976/thumb_earth_III.jpg"
+            }
+         }
+      },
+      "average_color":{
+         "type_id":"null",
+         "value":""
+      },
+      "average_hue":null,
+      "columns":1429,
+      "depth":2.0,
+      "description":"I am very interested in textural, invented landscapes.  This work looked and felt very terrestrial to me; planetary.",
+      "height":16.0,
+      "id":976,
+      "rows":1345,
+      "shipping_requirements":null,
+      "title":"\"Earth III\"",
+      "user_id":520,
+      "weight":null,
+      "medium":[
+         {
+            "id":982,
+            "name":"Oil on panel"
+         }
+      ],
+      "genre":[
+         {
+            "id":5,
+            "name":"abstract"
+         }
+      ],
+      "keyword":[
+
+      ],
+      "width":16.0,
+      "price":250.0,
+      "artist":{
+         "email":"eawoody@msn.com",
+         "id":520,
+         "artwork_count":5,
+         "user_profile":{
+            "address1":null,
+            "address2":null,
+            "city":"Louisville",
+            "first_name":"Elizabeth",
+            "last_name":"Woody",
+            "profile_image":{
+               "profile_image":{
+                  "url":"http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/user_profile/profile_image/520/SAM_0720.JPG",
+                  "preview":{
+                     "url":"http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/user_profile/profile_image/520/preview_SAM_0720.JPG"
+                  },
+                  "thumb":{
+                     "url":"http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/user_profile/profile_image/520/thumb_SAM_0720.JPG"
+                  }
+               }
             },
-            "url" : "http://com.arttwo50.s3-us-west-2.amazonaws.com/production/uploads/artwork/artwork_image/551/IMG_8021.jpg"      
-        }
-   },
-   "average_color" : {
-        "type_id" : null,
-        "value" : ""
-   },
-   "average_hue" : "<null>",
-   "columns" : 1926,
-   "depth" : 1,
-   "description" : "Anyone who has ever tried to park a car in New York City hates when they see these. It looks like a spot then you pull up and see the fire hydrant. Painted on the corner of Ave I and Coney Island Ave in Brooklyn. A classic symbol of New York life.",
-   "genre" : {
-        "id" : 116,
-        "name" : "Modern"
-   },
-   "height" : 20,
-   "id" : 551,
-   "keyword" : "",
-   "medium" : {
-        "id" : 143,
-        "name" : "acrylic on canvas"
-   },
-   "price" : 250,
-   "rows" : 1536,
-   "shipping_requirements" : "<null>",
-   "title" : "Brooklyn Fire Hydrant",
-   "user_id" : 319,
-   "weight" : "<null>",
-   "width" : 16
-}
+            "artist_statement":"My work conveys  an invented, imaginative space for the viewer to travel into.  They evoke different feelings and moods for each individual.  I believe that each painting allows the viewer to get lost in their own interpretation of what they are seeing. ",
+            "state":"Colorado"
+         }
+      }
+   }
+]
