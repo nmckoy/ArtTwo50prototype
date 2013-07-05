@@ -121,45 +121,41 @@ function FirstView() {
                 top: 50,
                 zIndex: 0
             });
-            
-            //just to tell us visibly that overlap has happened
-            function updateUI() {
-                if (viewOverlap(collection1.rect, container.rect)) {
-                    collection1.opacity = 0.5;
-                } else {
-                    collection1.opacity = 1;
-                }
+            for (var k = 0; k < artworks2.length; k++){
+                var iterated_views = artworks2[k];
+                //just to tell us visibly that overlap has happened
+                    function updateUI() {
+                        if (viewOverlap(collection1.rect, artworks2[k].rect)) {
+                            //collection1.opacity = 0.5;
+                            var num = artscroll.currentPage;
+                            collection1.add(artworks2[num]);
+                            if (collection1.children) {
+                                for (var i = 0; i < collection1.children.length; i++) {
+                                    if (collection1.children[i] !== undefined) {
+                                        collection1.remove(collection1.children[i]);
+                                    }
+                                }
+                            }
+                        var blob = win.toImage();
+                        var render = Ti.UI.createImageView({
+                            image: blob.imageAsCropped({x:1, y:1, width:1300, height:650}),
+                            width: '50%',
+                            height: '50%',
+                            zIndex: 0
+                        });
+                        sharewin.add(render);
+                        buywindow.add(render);
+                        } else {
+                            //collection1.opacity = 1;
+                            alert("Drag the image into the collection");
+                        }
+                  }
             }
             container.addEventListener('start', function(e){
                 //container.setOpacity(0.5);
             })
             container.addEventListener('end', updateUI);
-            /*ontainer.addEventListener('end', function(e){
-                //check if container's coordinates are in the collections'
-                var num = artscroll.currentPage;
-                
-                if (1==1) {
-                    if (collection1.children) {
-                        for (var i = 0; i < collection1.children.length; i++) {
-                            if (collection1.children[i] !== undefined) {
-                                collection1.remove(collection1.children[i]);
-                            }
-                        }
-                    }
-                    collection1.add(artworks2[num]);
-                    var blob = win.toImage();
-                    var render = Ti.UI.createImageView({
-                       image: blob.imageAsCropped({x:1, y:1, width:1300, height:650}),
-                       width: '50%',
-                       height: '50%',
-                       zIndex: 0
-                    });
-                    sharewin.add(render);
-                    buywindow.add(render);
-                } else {
-                    alert("Drag art into the collection");
-                }
-            });*/
+            
             
             //artworks and artwok copies
             var artview = Ti.UI.createImageView({image: artists.artwork_image.artwork_image.ipad_display.url}),
