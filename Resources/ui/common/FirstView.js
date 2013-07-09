@@ -1,29 +1,27 @@
 //FirstView Component Constructor
 function FirstView() {
-    
     //require the Draggable module please
     var drag = require('ti.draggable');
-	
-	var win = Ti.UI.createWindow({
-        title : "ArtTwo50",
-        backgroundColor : "#000000",
+
+    var win = Ti.UI.createWindow({
+        backgroundColor: '#000000',
         width: '100%',
         height: '100%',
         fullscreen: true
     });
-	
-	// open photos button
-	var btn = Ti.UI.createButton({
-	    title: "photo",
+    
+    // open photos button
+    var btn = Ti.UI.createButton({
+        title: "photo",
         width:125,
         height:50,
         bottom:10,
         left:50,
         zIndex:3
-	});
-	win.add(btn);
-	
-	//open dialog box
+    });
+    win.add(btn);
+    
+    //open dialog box
     btn.addEventListener("click", function(e){
         // Dialog box
         var dialog = Titanium.UI.createOptionDialog({
@@ -76,55 +74,71 @@ function FirstView() {
     
     
     dialog.show({view:btn});
+    });    
+
+
+    /*
+    * THIS IS THE START OF THE ARTWORK BROWSING
+    * 
+    */
+    
+    /*
+    * DRAG OVER COLLECTION BAR LOGIC
+    */
+    //Boolean functions to check the 'overlappers' x and y values against
+    //the min and max x and y values of the 'overlappee' 
+    function valueInRange(value, min, max) {
+        return (value >= min) && (value <= max);
+    }
+ 
+    function rectOverlap(A, B) {
+       var xOverlap = valueInRange(A.x, B.x, B.x + B.width) || valueInRange(B.x, A.x, A.x + A.width);
+       var yOverlap = valueInRange(A.y, B.y, B.y + B.height) || valueInRange(B.y, A.y, A.y + B.height);
+       return xOverlap && yOverlap;
+    }
+    //test collectionbar
+    var v1 = Ti.UI.createView({
+       bottom: 20,
+        width: '15%',
+       height: '15%',
+       backgroundColor : '##4c4c4c',
+       zIndex: 2
     });
+    win.add(v1);
     
-    
-    
-    
-    
-    
-        /*
-     * THIS IS THE START OF THE ARTWORK BROWSING
-     * 
-     */
-    
-     /*
-     * DRAG OVER COLLECTION BAR LOGIC
-     */
-     //Boolean functions to check the 'overlappers' x and y values against
-     //the min and max x and y values of the 'overlappee'
-     function valueInRange(value, min, max) {
-          return (value >= min) && (value <= max);
-     }
-     function viewOverlap(A, B) {
-          var xOverlap = valueInRange(A.x, B.x, B.x /*+ B.width*/) || valueInRange(B.x, A.x, A.x /*+ A.width*/);
-          var yOverlap = valueInRange(A.y, B.y, B.y /*+ B.height*/) || valueInRange(B.y, A.y, A.y /*+ B.height*/);
-          return xOverlap && yOverlap;
-     }
-    
-    // holds artworks, artwork copies, and labels for detailwindow
+    // holds artworks, artwork copies, and labels for detailwindow    
     var artworks = [], artworks2 = [], artworks3 = [], labels = [];
-    
-    // Titanium HTTP API
+
     var xhr = Ti.Network.createHTTPClient();
-    
-    // success on JSON
     xhr.onload = function(){
         var json = JSON.parse(xhr.responseText);
-        for (var i = 0; i < json.length; i++) {
+        for (var i = 0; i < json.length; i++){
             var artists = json[i];
             // the container view to put the art image into for scrollable view
-            // the scrollable view image can be dragged with .drag
+            // the scrollable view image can be dragged with .drag            
             var container = drag.createView({
                 width: '30%',
                 height: '30%',
-                top: 50,
-                zIndex: 0
+                top: 50
             });
-            for (var k = 0; k < artworks2.length; k++){
-                var iterated_views = artworks2[k];
+
+            container.addEventListener('move', function(){
+                //updateUI
+                var num = artscroll.currentPage;
+                if (rectOverlap(v1.rect, artworks[num].rect)) {
+                    artworks[num].opacity = 0.5;
+                } else {
+                    artworks[num].opacity = 1;
+                }
+            });
+            
+            container.addEventListener('end', function(){
+                var num = artscroll.currentPage;
+                artworks[num].setTop(50);
+                artworks[num].opacity = 1;
+            });
                 //just to tell us visibly that overlap has happened
-                    function updateUI() {
+                    /*function updateUI() {
                         if (viewOverlap(collection1.rect, artworks2[k].rect)) {
                             //collection1.opacity = 0.5;
                             var num = artscroll.currentPage;
@@ -149,19 +163,13 @@ function FirstView() {
                             //collection1.opacity = 1;
                             alert("Drag the image into the collection");
                         }
-                  }
-            }
-            container.addEventListener('start', function(e){
-                //container.setOpacity(0.5);
-            })
-            container.addEventListener('end', updateUI);
-            
-            
+                  }*/
+                 
             //artworks and artwok copies
             var artview = Ti.UI.createImageView({image: artists.artwork_image.artwork_image.ipad_display.url}),
                 detailcopy = Ti.UI.createImageView({image: artists.artwork_image.artwork_image.ipad_display.url}),
                 sharecopy = Ti.UI.createImageView({image: artists.artwork_image.artwork_image.ipad_display.url, width: '40%', height: '40%'});
-             
+                
             // details for artworks in detailwindow    
             var textview = Ti.UI.createView({
                 height: '100%',
@@ -222,8 +230,8 @@ function FirstView() {
             textview.add(name);
             textview.add(genre);
             textview.add(description);
-            labels.push(textview);
-            
+            labels.push(textview);        
+                        
             artview.addEventListener('click', function() {
                 var num = artscroll.currentPage;
                 detailwindow.add(artworks2[num]);
@@ -231,14 +239,12 @@ function FirstView() {
                 detailwindow.open();
         
             });
-	   }
-  
-	   var artscroll = Ti.UI.createScrollableView({
-            views: artworks,
-            maxZoomScale: 10,
-            minZoomScale: 0.1,
-        });
-        
+        }   
+
+       
+        var artscroll = Ti.UI.createScrollableView({
+            views: artworks
+        })
         artscroll.setZIndex(2);
         win.add(artscroll);
         
@@ -347,35 +353,36 @@ function FirstView() {
         alert ("Error reading artwork data");
     }
     
-    xhr.open("GET", "http://www.arttwo50.com/artworks/query.json?distance=close&limit=2&size=small");
+    xhr.open("GET", "http://www.arttwo50.com/artworks/query.json?distance=close&limit=4&size=small");
     xhr.send(); // asynchronous call
            /*
             * END ARTWORK BROWSING
             * 
             */
            
-           
+ /*          
     // Collection Bar View    
     var collectionbar = Ti.UI.createView ({
-       backgroundColor: '#232528',
+       //backgroundColor: '#232528',
+       backgroundColor: 'yellow',
        borderRadius: 20,
-       width: 400,
+       //width: 400,
+       width: 100,
        height: 100,
        bottom: -10,
-       opacity: 0.7,
-       zIndex: 1
+       opacity: 0.7
     });
     win.add(collectionbar);
     
-    // collection views within bar
-    var collection1 = Ti.UI.createView ({backgroundColor: /*'#101316'*/'green', width: 70, height: 70, left: 30, zIndex: 1}),
+     collection views within bar
+    var collection1 = Ti.UI.createView ({backgroundColor: 'green', width: 70, height: 70, left: 30, zIndex: 1}),
         collection2 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 120, zIndex: 1}),
         collection3 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 210, zIndex: 1}),
         collection4 = Ti.UI.createView ({backgroundColor: '#101316', width: 70, height: 70, left: 300, zIndex: 1});
     collectionbar.add(collection1);
     collectionbar.add(collection2);
     collectionbar.add(collection3);
-    collectionbar.add(collection4);  
+    collectionbar.add(collection4);  */
     
 
     
